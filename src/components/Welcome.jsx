@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from "./NavBar";
 import IntroMessage from './IntroMessage';
+import Button from './Button'
 
 
 
@@ -9,6 +10,7 @@ export default function Welcome() {
     <div>
        <NavBar />
        <IntroMessage/>
+       <Button/>
      
     
     </div>
