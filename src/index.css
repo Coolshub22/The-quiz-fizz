@@ -1,68 +1,203 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Styling */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: white;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: green; /* Set sidebar color */
+  color: #ffffff;
+  height: 100vh;
+  padding: 1.5rem 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10; /* Ensure sidebar is on top */
 }
 
-body {
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffda6a;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
+.sidebar li {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  transition: background 0.3s;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.sidebar li:hover {
+  background-color: #2e2e40;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.sidebar li a:hover {
+  color: #ffda6a;
+}
+
+.sidebar li a.active {
+  color: #ffda6a;
+}
+
+.sidebar li.active {
+  background-color: #ffda6a;
+  color: #1e1e2f;
+}
+
+/* Main Content Styles */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 200px; /* Adjust for sidebar width */
+  padding: 2rem;
+  background-color: #fafafa;
+}
+
+/* Welcome Page Styles */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f3f4f6;
+  padding: 20px;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  color: #1e1e2f;
+  margin-bottom: 1rem;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.welcome-button {
+  background-color: #ffda6a;
+  color: #1e1e2f;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.welcome-button:hover {
+  background-color: #ffd338;
+}
+
+.welcome-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 218, 106, 0.5);
+}
+
+/* Category Select Styles */
+.category-select {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.category-select h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.category-select ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.category-select li {
+  margin: 15px 0;
+}
+
+.category-select button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 300px;
+}
+
+.category-select button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.category-select button:focus {
+  outline: none;
+}
+
+.category-select button:active {
+  background-color: #387f39;
+}
+
+.category-select li {
+  display: flex;
+  justify-content: center;
+}
+
+.category-select li button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 300px;
 }
