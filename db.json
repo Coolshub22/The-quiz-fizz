@@ -1,0 +1,313 @@
+{
+    "science": [
+      {
+        "id": 1,
+        "question": "What is the chemical symbol for water?",
+        "answers": ["H2O", "O2", "CO2", "H2"],
+        "correctAnswer": "H2O"
+      },
+      {
+        "id": 2,
+        "question": "What planet is known as the Red Planet?",
+        "answers": ["Mars", "Venus", "Earth", "Jupiter"],
+        "correctAnswer": "Mars"
+      },
+      {
+        "id": 3,
+        "question": "What is the hardest natural substance on Earth?",
+        "answers": ["Diamond", "Gold", "Iron", "Platinum"],
+        "correctAnswer": "Diamond"
+      },
+      {
+        "id": 4,
+        "question": "How many bones are in the adult human body?",
+        "answers": ["206", "201", "210", "220"],
+        "correctAnswer": "206"
+      },
+      {
+        "id": 5,
+        "question": "What is the main gas found in the air we breathe?",
+        "answers": ["Nitrogen", "Oxygen", "Carbon Dioxide", "Hydrogen"],
+        "correctAnswer": "Nitrogen"
+      },
+      {
+        "id": 6,
+        "question": "Who developed the theory of relativity?",
+        "answers": ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla"],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "id": 7,
+        "question": "What is the chemical element for gold?",
+        "answers": ["Au", "Ag", "Fe", "Cu"],
+        "correctAnswer": "Au"
+      },
+      {
+        "id": 8,
+        "question": "What is the human body's largest organ?",
+        "answers": ["Skin", "Liver", "Brain", "Heart"],
+        "correctAnswer": "Skin"
+      },
+      {
+        "id": 9,
+        "question": "What is the powerhouse of the cell?",
+        "answers": ["Mitochondria", "Nucleus", "Ribosome", "Golgi Apparatus"],
+        "correctAnswer": "Mitochondria"
+      },
+      {
+        "id": 10,
+        "question": "What is the speed of light?",
+        "answers": ["299,792,458 m/s", "300,000 km/s", "150,000 km/s", "299,792 km/s"],
+        "correctAnswer": "299,792,458 m/s"
+      }
+    ],
+    "history": [
+      {
+        "id": 1,
+        "question": "Who was the first president of the United States?",
+        "answers": ["George Washington", "Abraham Lincoln", "Thomas Jefferson", "John Adams"],
+        "correctAnswer": "George Washington"
+      },
+      {
+        "id": 2,
+        "question": "In what year did World War II end?",
+        "answers": ["1945", "1918", "1939", "1963"],
+        "correctAnswer": "1945"
+      },
+      {
+        "id": 3,
+        "question": "Who was the first emperor of China?",
+        "answers": ["Qin Shi Huang", "Han Wudi", "Emperor Wu", "Li Shimin"],
+        "correctAnswer": "Qin Shi Huang"
+      },
+      {
+        "id": 4,
+        "question": "Who wrote the Declaration of Independence?",
+        "answers": ["Thomas Jefferson", "George Washington", "Benjamin Franklin", "John Adams"],
+        "correctAnswer": "Thomas Jefferson"
+      },
+      {
+        "id": 5,
+        "question": "Which war was fought between the North and South in the United States?",
+        "answers": ["American Civil War", "World War I", "World War II", "Vietnam War"],
+        "correctAnswer": "American Civil War"
+      },
+      {
+        "id": 6,
+        "question": "Who was the first woman to fly solo across the Atlantic Ocean?",
+        "answers": ["Amelia Earhart", "Harriet Quimby", "Jacqueline Cochran", "Bessie Coleman"],
+        "correctAnswer": "Amelia Earhart"
+      },
+      {
+        "id": 7,
+        "question": "What year did the Titanic sink?",
+        "answers": ["1912", "1905", "1923", "1898"],
+        "correctAnswer": "1912"
+      },
+      {
+        "id": 8,
+        "question": "Who was the leader of the Soviet Union during World War II?",
+        "answers": ["Joseph Stalin", "Vladimir Lenin", "Leon Trotsky", "Nikita Khrushchev"],
+        "correctAnswer": "Joseph Stalin"
+      },
+      {
+        "id": 9,
+        "question": "Which empire was ruled by Julius Caesar?",
+        "answers": ["Roman Empire", "Ottoman Empire", "British Empire", "Mongol Empire"],
+        "correctAnswer": "Roman Empire"
+      },
+      {
+        "id": 10,
+        "question": "Who was the first man to step on the moon?",
+        "answers": ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Michael Collins"],
+        "correctAnswer": "Neil Armstrong"
+      }
+    ],
+    "technology": [
+      {
+        "id": 1,
+        "question": "Who is known as the father of the computer?",
+        "answers": ["Charles Babbage", "Alan Turing", "Bill Gates", "Steve Jobs"],
+        "correctAnswer": "Charles Babbage"
+      },
+      {
+        "id": 2,
+        "question": "What does 'HTTP' stand for?",
+        "answers": ["HyperText Transfer Protocol", "HyperText Transmission Protocol", "HyperTransfer Text Protocol", "HyperText Time Protocol"],
+        "correctAnswer": "HyperText Transfer Protocol"
+      },
+      {
+        "id": 3,
+        "question": "What was the first video game ever created?",
+        "answers": ["Tennis for Two", "Space Invaders", "Pong", "Pac-Man"],
+        "correctAnswer": "Tennis for Two"
+      },
+      {
+        "id": 4,
+        "question": "What programming language is known as the foundation of web development?",
+        "answers": ["JavaScript", "Python", "C++", "Java"],
+        "correctAnswer": "JavaScript"
+      },
+      {
+        "id": 5,
+        "question": "What year was the first iPhone released?",
+        "answers": ["2007", "2005", "2010", "2003"],
+        "correctAnswer": "2007"
+      },
+      {
+        "id": 6,
+        "question": "Which company created the first personal computer?",
+        "answers": ["IBM", "Apple", "Microsoft", "Compaq"],
+        "correctAnswer": "IBM"
+      },
+      {
+        "id": 7,
+        "question": "Which internet browser was first launched in 1995?",
+        "answers": ["Internet Explorer", "Chrome", "Firefox", "Safari"],
+        "correctAnswer": "Internet Explorer"
+      },
+      {
+        "id": 8,
+        "question": "Who invented the World Wide Web?",
+        "answers": ["Tim Berners-Lee", "Bill Gates", "Steve Jobs", "Vint Cerf"],
+        "correctAnswer": "Tim Berners-Lee"
+      },
+      {
+        "id": 9,
+        "question": "What does 'AI' stand for?",
+        "answers": ["Artificial Intelligence", "Automated Information", "Artificial Interface", "Advanced Intelligence"],
+        "correctAnswer": "Artificial Intelligence"
+      },
+      {
+        "id": 10,
+        "question": "Which company developed the Windows operating system?",
+        "answers": ["Microsoft", "Apple", "Google", "IBM"],
+        "correctAnswer": "Microsoft"
+      }
+    ],
+    "art": [
+      {
+        "id": 1,
+        "question": "Who painted the Mona Lisa?",
+        "answers": ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet"],
+        "correctAnswer": "Leonardo da Vinci"
+      },
+      {
+        "id": 2,
+        "question": "In what city is the Louvre Museum located?",
+        "answers": ["Paris", "London", "New York", "Rome"],
+        "correctAnswer": "Paris"
+      },
+      {
+        "id": 3,
+        "question": "Who is the artist known for the 'Starry Night' painting?",
+        "answers": ["Vincent van Gogh", "Edvard Munch", "Claude Monet", "Salvador Dalí"],
+        "correctAnswer": "Vincent van Gogh"
+      },
+      {
+        "id": 4,
+        "question": "What is the name of the famous sculpture by Michelangelo?",
+        "answers": ["David", "The Thinker", "Venus de Milo", "Laocoon"],
+        "correctAnswer": "David"
+      },
+      {
+        "id": 5,
+        "question": "Who is the artist of 'The Persistence of Memory'?",
+        "answers": ["Salvador Dalí", "Pablo Picasso", "Henri Matisse", "Georgia O'Keeffe"],
+        "correctAnswer": "Salvador Dalí"
+      },
+      {
+        "id": 6,
+        "question": "Which art movement is Salvador Dalí associated with?",
+        "answers": ["Surrealism", "Impressionism", "Cubism", "Expressionism"],
+        "correctAnswer": "Surrealism"
+      },
+      {
+        "id": 7,
+        "question": "Who painted 'The Last Supper'?",
+        "answers": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Titian"],
+        "correctAnswer": "Leonardo da Vinci"
+      },
+      {
+        "id": 8,
+        "question": "Which artist is famous for his 'Campbell's Soup Cans'?",
+        "answers": ["Andy Warhol", "Roy Lichtenstein", "Jackson Pollock", "Mark Rothko"],
+        "correctAnswer": "Andy Warhol"
+      },
+      {
+        "id": 9,
+        "question": "What technique did Jackson Pollock use to create his art?",
+        "answers": ["Drip painting", "Pointillism", "Collage", "Watercolor"],
+        "correctAnswer": "Drip painting"
+      },
+      {
+        "id": 10,
+        "question": "Which famous artist created the ceiling of the Sistine Chapel?",
+        "answers": ["Michelangelo", "Leonardo da Vinci", "Raphael", "Caravaggio"],
+        "correctAnswer": "Michelangelo"
+      }
+    ],
+    "literature": [
+      {
+        "id": 1,
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "answers": ["William Shakespeare", "Charles Dickens", "Jane Austen", "George Orwell"],
+        "correctAnswer": "William Shakespeare"
+      },
+      {
+        "id": 2,
+        "question": "Who is the author of 'Moby Dick'?",
+        "answers": ["Herman Melville", "Mark Twain", "Nathaniel Hawthorne", "Edgar Allan Poe"],
+        "correctAnswer": "Herman Melville"
+      },
+      {
+        "id": 3,
+        "question": "Which novel begins with the line, 'Call me Ishmael'?",
+        "answers": ["Moby Dick", "The Great Gatsby", "Pride and Prejudice", "Wuthering Heights"],
+        "correctAnswer": "Moby Dick"
+      },
+      {
+        "id": 4,
+        "question": "Who wrote 'Pride and Prejudice'?",
+        "answers": ["Jane Austen", "Charlotte Brontë", "Emily Dickinson", "Louisa May Alcott"],
+        "correctAnswer": "Jane Austen"
+      },
+      {
+        "id": 5,
+        "question": "What is the title of the first Harry Potter book?",
+        "answers": ["Harry Potter and the Philosopher's Stone", "Harry Potter and the Chamber of Secrets", "Harry Potter and the Goblet of Fire", "Harry Potter and the Half-Blood Prince"],
+        "correctAnswer": "Harry Potter and the Philosopher's Stone"
+      },
+      {
+        "id": 6,
+        "question": "Who wrote '1984'?",
+        "answers": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Kurt Vonnegut"],
+        "correctAnswer": "George Orwell"
+      },
+      {
+        "id": 7,
+        "question": "Which character is the protagonist of 'The Catcher in the Rye'?",
+        "answers": ["Holden Caulfield", "Jay Gatsby", "Huck Finn", "Atticus Finch"],
+        "correctAnswer": "Holden Caulfield"
+      },
+      {
+        "id": 8,
+        "question": "Who is the author of 'To Kill a Mockingbird'?",
+        "answers": ["Harper Lee", "Mark Twain", "F. Scott Fitzgerald", "Ernest Hemingway"],
+        "correctAnswer": "Harper Lee"
+      },
+      {
+        "id": 9,
+        "question": "What is the title of J.R.R. Tolkien's famous fantasy trilogy?",
+        "answers": ["The Lord of the Rings", "The Hobbit", "The Chronicles of Narnia", "The Dark Tower"],
+        "correctAnswer": "The Lord of the Rings"
+      },
+      {
+        "id": 10,
+        "question": "Who wrote 'The Great Gatsby'?",
+        "answers": ["F. Scott Fitzgerald", "Ernest Hemingway", "John Steinbeck", "William Faulkner"],
+        "correctAnswer": "F. Scott Fitzgerald"
+      }
+    ]
+  }
+  
