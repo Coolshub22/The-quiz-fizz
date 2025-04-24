@@ -1,29 +1,28 @@
-import { useNavigate } from "react-router-dom"; // Import the hook to navigate
+import { useNavigate } from "react-router-dom";
 
 function CategorySelect() {
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate();
 
-  // Dummy categories (you can replace this with data from your db.json)
   const categories = ["Science", "History", "Technology", "Art", "Literature"];
 
-  // Function to handle category selection
   const handleCategorySelect = (category) => {
-    // You can store the selected category in the state if needed
-    navigate(`/quiz/${category.toLowerCase()}`); // Navigate to quiz page with category
+    navigate(`/quiz/${category}`);
   };
 
   return (
     <div className="category-select">
-      <h1>Select a Category</h1>
-      <ul>
-        {categories.map((category, index) => (
-          <li key={index}>
-            <button onClick={() => handleCategorySelect(category)}>
-              {category}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="category-container">
+        <h1>Select a Category</h1>
+        <ul>
+          {categories.map((category, index) => (
+            <li key={index}>
+              <button onClick={() => handleCategorySelect(category)}>
+                {category}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
