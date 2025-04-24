@@ -29,6 +29,13 @@ function Result() {
       >
         🔄 Try Another Quiz
       </button>
+      <button
+  onClick={() => navigate("/feedback")}
+  className="mt-4 px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600 transition"
+>
+  💬 Give Feedback
+</button>
+
     </div>
   );
 }

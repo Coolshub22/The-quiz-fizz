@@ -9,7 +9,7 @@ function Sidebar() {
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/category">Category</NavLink></li>
-          <li><NavLink to="/leaderboard">Leaderboard</NavLink></li>
+          <li><NavLink to="/Feedback">Feedback</NavLink></li>
         </ul>
       </nav>
     </div>
