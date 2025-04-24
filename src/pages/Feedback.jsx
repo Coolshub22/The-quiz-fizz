@@ -28,22 +28,21 @@ function Feedback() {
         <p className="feedback-success">🎉 Thanks for your feedback!</p>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div className="mb-6">
-      <h2 className="text-lg font-semibold mb-2">How was your quiz experience?</h2>
-      <div className="flex justify-center gap-2 text-2xl">
-        {[1, 2, 3, 4, 5].map((star) => (
-        <span
+          <div className="experience-rating">
+  <h2>How was your quiz experience?</h2>
+  <div className="star-rating">
+    {[1, 2, 3, 4, 5].map((star) => (
+      <span
         key={star}
-        className={`cursor-pointer ${
-          star <= rating ? "text-yellow-400" : "text-gray-300"
-        }`}
+        className={star <= rating ? "star selected" : "star"}
         onClick={() => setRating(star)}
       >
         ★
-       </span>
-        ))}
-         </div>
-        </div>
+      </span>
+    ))}
+  </div>
+</div>
+
         <div className="form-group">
   <label htmlFor="feedbackCategory">What category are you giving feedback on?</label>
   <select
