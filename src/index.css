@@ -437,5 +437,23 @@ h2 {
 .star.selected {
   color: #facc15; /* Selected stars */
 }
+.checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.25rem;
+  border: 2px solid #cbd5e1; /* Gray-400 */
+  transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+  background-color: #4caf50; /* Green color */
+  border-color: #4caf50;
+}
+label {
+  color: #4a4a4a; /* Medium grey for better visibility */
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 
 

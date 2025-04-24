@@ -6,6 +6,12 @@ function Feedback() {
   const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [feedbackItems, setFeedbackItems] = useState({
+    UI: false,
+    Questions: false,
+    Simplicity: false,
+  });
+  
 
 
 
@@ -18,6 +24,14 @@ function Feedback() {
       setFeedback(""); // Clear the input
     }
   };
+  const handleCheckboxChange = (e) => {
+    const { value, checked } = e.target;
+    setFeedbackItems((prevState) => ({
+      ...prevState,
+      [value]: checked,
+    }));
+  };
+  
 
   return (
     <div className="feedback-container">
@@ -42,6 +56,42 @@ function Feedback() {
     ))}
   </div>
 </div>
+<div className="mb-6">
+  <h2 className="text-lg font-semibold mb-2">What did you enjoy?</h2>
+  <div className="flex flex-col gap-3">
+    <label className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        value="UI"
+        checked={feedbackItems.UI}
+        onChange={handleCheckboxChange}
+        className="checkbox"
+      />
+      UI
+    </label>
+    <label className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        value="Questions"
+        checked={feedbackItems.Questions}
+        onChange={handleCheckboxChange}
+        className="checkbox"
+      />
+      Questions
+    </label>
+    <label className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        value="Simplicity"
+        checked={feedbackItems.Simplicity}
+        onChange={handleCheckboxChange}
+        className="checkbox"
+      />
+      Simplicity
+    </label>
+  </div>
+</div>
+
 
         <div className="form-group">
   <label htmlFor="feedbackCategory">What category are you giving feedback on?</label>
