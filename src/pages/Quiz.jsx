@@ -105,14 +105,14 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Quiz App</h1>
+      <h1>Quiz Fizz</h1>
 
       {!quizFinished && (
         <>
           {/* Category Selection */}
           <div className="category-selection">
             <h3>Choose a category:</h3>
-            <select onChange={(e) => setCategory(e.target.value)} value={category}>
+            <select className="categ"  onChange={(e) => setCategory(e.target.value)} value={category}>
               {categories.map((cat, idx) => (
                 <option key={idx} value={cat.toLowerCase()}>
                   {cat}
