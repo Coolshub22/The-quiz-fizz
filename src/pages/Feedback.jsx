@@ -5,6 +5,8 @@ function Feedback() {
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
 
 
   const handleSubmit = (e) => {
@@ -27,10 +29,10 @@ function Feedback() {
       ) : (
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
-  <h2 className="text-lg font-semibold mb-2">How was your quiz experience?</h2>
-  <div className="flex justify-center gap-2 text-2xl">
-    {[1, 2, 3, 4, 5].map((star) => (
-      <span
+      <h2 className="text-lg font-semibold mb-2">How was your quiz experience?</h2>
+      <div className="flex justify-center gap-2 text-2xl">
+        {[1, 2, 3, 4, 5].map((star) => (
+        <span
         key={star}
         className={`cursor-pointer ${
           star <= rating ? "text-yellow-400" : "text-gray-300"
@@ -38,10 +40,27 @@ function Feedback() {
         onClick={() => setRating(star)}
       >
         ★
-      </span>
-    ))}
-  </div>
+       </span>
+        ))}
+         </div>
+        </div>
+        <div className="form-group">
+  <label htmlFor="feedbackCategory">What category are you giving feedback on?</label>
+  <select
+    id="feedbackCategory"
+    value={selectedCategory}
+    onChange={(e) => setSelectedCategory(e.target.value)}
+    className="form-select"
+  >
+    <option value="">-- Select a category --</option>
+    <option value="Science">Science</option>
+    <option value="Technology">Technology</option>
+    <option value="History">History</option>
+    <option value="Art">Art</option>
+    <option value="Literature">Literature</option>
+  </select>
 </div>
+
 
           <textarea
             value={feedback}
