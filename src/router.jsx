@@ -4,6 +4,7 @@ import Welcome from "./pages/Welcome";
 import CategorySelect from "./components/CategorySelect";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
+import Feedback from "./pages/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "result",
         element: <Result />,
+      },
+      {
+        path: "Feedback",
+        element: <Feedback />,
       },
     ],
   },
