@@ -9,19 +9,19 @@ function Feedback() {
     e.preventDefault();
 
     if (feedback.trim() !== "") {
-      console.log("Feedback submitted:", feedback); // You can replace this with an API/localStorage later
+      console.log("Feedback submitted:", feedback); 
       setSubmitted(true);
       setFeedback(""); // Clear the input
     }
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 text-center">
+    <div className="feedback-container">
       <h1 className="text-3xl font-bold mb-4">🙏 Thank You!</h1>
       <p className="text-lg mb-6">We really appreciate you taking the quiz. We'd love to hear your thoughts!</p>
 
       {submitted ? (
-        <p className="text-green-600 font-semibold">🎉 Thanks for your feedback!</p>
+        <p className="feedback-success">🎉 Thanks for your feedback!</p>
       ) : (
         <form onSubmit={handleSubmit}>
           <textarea
