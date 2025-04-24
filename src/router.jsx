@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
+import App from "./App"
 import Welcome from "./pages/Welcome";
 import CategorySelect from "./components/CategorySelect";
 import Quiz from "./pages/Quiz";
