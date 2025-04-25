@@ -9,6 +9,9 @@ The Quiz App is a responsive React web application designed to help users test t
 
 ---
 
+## Link to our website
+https://the-quiz-fizz.vercel.app/
+
 ## Features
 
 * **Start Screen:** Presents a clean starting page with a "Start Quiz" button to begin the challenge.
@@ -40,11 +43,11 @@ To run this project locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/Coolshub22/The-quiz-fizz
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd <project-directory-name>
+    cd the-quiz-fizz
     ```
 3.  **Install dependencies:**
     Choose the command based on your package manager:
@@ -55,9 +58,8 @@ To run this project locally:
     ```
 4.  **Start the development server:**
     ```bash
-    npm start
-    # or
-    yarn start
+    npm run dev
+
     ```
 5.  Open your browser and go to `http://localhost:3000` (or the port specified in your console).
 
