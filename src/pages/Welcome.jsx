@@ -15,8 +15,8 @@ function Welcome() {
 
   return (
     <div className="welcome-container">
-      <h1>Welcome to the Quiz App</h1>
-      <p>Test your knowledge across different categories. Ready to start?</p>
+      <h1>Welcome to <strong>Quiz Fizz</strong> </h1>
+      <p><strong>Test your knowledge across different categories. Ready to start?</strong></p>
       <button className="welcome-button" onClick={handleStart}>
         Start Quiz
       </button>

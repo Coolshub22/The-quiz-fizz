@@ -91,8 +91,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:whitesmoke;
-  color: rgb(25, 25, 255);
+  background-image: url("https://cdn.pixabay.com/photo/2022/10/19/20/16/background-7533503_1280.jpg");
+  color: white;
   text-align: center;
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
@@ -136,7 +136,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #6366f1, #a855f7);
+  background-image: url("https://cdn.pixabay.com/photo/2022/10/19/20/16/background-7533503_1280.jpg");
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 2rem;
