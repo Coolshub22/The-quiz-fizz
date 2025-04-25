@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import { Toaster } from 'react-hot-toast';
+ 
 
 function App() {
   return (
