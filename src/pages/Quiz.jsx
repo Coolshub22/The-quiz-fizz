@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css'; 
+import toast from 'react-hot-toast';
 function App() {
   const [category, setCategory] = useState('Science');
   const [userCategory, setUserCategory] = useState('');
@@ -60,14 +61,17 @@ function App() {
 
       if (option === questions[currentQuestionIndex].correctAnswer) {
         setScore((prevScore) => prevScore + 1);
-      }
+        toast.success('Correct! 🎉');
+      } else {
+        toast.error('Oops! That was wrong ❌');
     }
   };
 
   const handleNextQuestion = () => {
     const nextIndex = currentQuestionIndex + 1;
     if (nextIndex >= questions.length) {
-      setQuizFinished(true); // Mark quiz as finished
+      setQuizFinished(true); 
+      toast('Quiz completed! 🏁'); // Mark quiz as finished
     } else {
       setCurrentQuestionIndex(nextIndex);
       setSelectedOption(null);
@@ -93,7 +97,7 @@ function App() {
       setCategory(userCategory);
       setQuizFinished(false); // Reset quiz when category changes
     } else {
-      alert("Invalid category! Please choose a valid category.");
+      toast.error("Invalid category! Please choose a valid category.");
     }
   };
 
@@ -105,14 +109,14 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Quiz App</h1>
+      <h1>Quiz Fizz</h1>
 
       {!quizFinished && (
         <>
           {/* Category Selection */}
           <div className="category-selection">
             <h3>Choose a category:</h3>
-            <select onChange={(e) => setCategory(e.target.value)} value={category}>
+            <select className="categ"  onChange={(e) => setCategory(e.target.value)} value={category}>
               {categories.map((cat, idx) => (
                 <option key={idx} value={cat.toLowerCase()}>
                   {cat}
@@ -194,6 +198,6 @@ function App() {
       )}
     </div>
   );
-}
+}}
 
 export default App;
