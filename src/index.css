@@ -79,7 +79,7 @@
 
 .main-content {
   flex-grow: 1;
-  margin-left: 200px; /* Adjust for sidebar width */
+  margin-left: 40px; /* Adjust for sidebar width */
   padding: 2rem;
   background-color: #fafafa;
 }
@@ -91,8 +91,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:whitesmoke;
-  color: rgb(25, 25, 255);
+  background-image: url("https://cdn.pixabay.com/photo/2022/10/19/20/16/background-7533503_1280.jpg");
+  color: white;
   text-align: center;
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
@@ -136,7 +136,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #6366f1, #a855f7);
+  background-image: url("https://cdn.pixabay.com/photo/2022/10/19/20/16/background-7533503_1280.jpg");
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 2rem;
@@ -263,39 +263,6 @@
 
 
 /* Additional Styling for Quiz */
-.feedback {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #f1f5f9;
-  border-left: 6px solid #4f46e5;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.feedback p {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.feedback button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  background: linear-gradient(to right, #4f46e5, #7c3aed);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.feedback button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
-}
 
 .quiz-container {
   display: flex;
@@ -499,99 +466,142 @@ hr {
 
 /* Feedback Page Styles */
 
+/* Container & Layout */
 .feedback-container {
   max-width: 700px;
-  margin: 0 auto;
+  margin: 3rem auto;
   padding: 2rem;
-  background: #f9fafb;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
 }
 
+/* Header */
 .feedback-container h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  color: #1d3557;
   text-align: center;
 }
 
 .feedback-container p {
-  color: #555;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+}
+
+/* Star Rating */
+.experience-rating {
   margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.feedback-success {
-  font-size: 1.2rem;
-  color: green;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 2rem;
-}
-
-.experience-rating h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
 }
 
 .star-rating {
   font-size: 2rem;
-  color: #ddd;
+  color: #ccc;
   cursor: pointer;
+  text-align: center;
 }
 
 .star {
-  padding: 0 5px;
+  transition: color 0.3s ease;
 }
 
+.star:hover,
 .star.selected {
-  color: gold;
+  color: #fbbf24;
 }
 
-.form-group {
-  margin-top: 1.5rem;
+/* Checkbox Section */
+.mb-6 {
   margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 1rem;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+}
+
+/* Dropdown */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 500;
+ 
 }
 
 .form-select {
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  background-color: whitesmoke;
+  color: #000;
 }
 
+.form-select:focus {
+  border-color: #007bff;
+}
+
+/* Textarea */
 textarea {
-  margin-top: 1rem;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 1rem;
-  font-size: 1rem;
-}
-
-input[type="checkbox"] {
-  transform: scale(1.2);
-}
-
-button[type="submit"] {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
   border-radius: 10px;
+  border: 1px solid #ccc;
   font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+  background-color: whitesmoke;
+}
+
+textarea:focus {
+  border-color: #007bff;
+}
+
+/* Button */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1.05rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 
 button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+/* Success Message */
+.feedback-success {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+  background: #eafaf1;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 2rem;
 }

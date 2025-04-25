@@ -1,5 +1,6 @@
 // src/pages/Feedback.jsx
 import React, { useState } from "react";
+import { toast, Toaster } from 'react-hot-toast';
 
 function Feedback() {
   const [feedback, setFeedback] = useState("");
@@ -18,11 +19,15 @@ function Feedback() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (feedback.trim() !== "") {
-      console.log("Feedback submitted:", feedback); 
-      setSubmitted(true);
-      setFeedback(""); // Clear the input
+    if (feedback.trim() === "") {
+      toast.error("Feedback cannot be empty.");
+      return;
     }
+  
+    console.log("Feedback submitted:", feedback);
+    setSubmitted(true);
+    setFeedback(""); // Clear the input
+    toast.success("🎉 Thanks for your feedback!");
   };
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
@@ -35,6 +40,7 @@ function Feedback() {
 
   return (
     <div className="feedback-container">
+      <Toaster position="top-center" />
       <h1 className="text-3xl font-bold mb-4">🙏 Thank You!</h1>
       <p className="text-lg mb-6">We really appreciate you taking the quiz. We'd love to hear your thoughts!</p>
 
