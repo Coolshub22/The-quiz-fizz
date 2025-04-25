@@ -1,203 +1,123 @@
-import React, { useState, useEffect } from 'react';
-import '../index.css'; 
-import toast from 'react-hot-toast';
-function App() {
-  const [category, setCategory] = useState('Science');
-  const [userCategory, setUserCategory] = useState('');
-  const [questions, setQuestions] = useState([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [score, setScore] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [quizFinished, setQuizFinished] = useState(false);
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
-  const categories = ['Science', 'History', 'Technology', 'Art', 'Literature'];
+function Quiz() {
+  const { category } = useParams();
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [timer, setTimer] = useState(30); // 30-second timer
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchQuestions = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(`http://localhost:5000/${category.toLowerCase()}`);
-        if (!response.ok) throw new Error('Failed to fetch questions.');
-        const data = await response.json();
-
-        if (!data || data.length === 0) throw new Error('No questions found for this category.');
-
-        const shuffled = [...data];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-
-        setQuestions(shuffled.slice(0, 10));
-      } catch (error) {
-        console.error('Error fetching questions:', error);
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (category) {
-      fetchQuestions();
-    }
+    fetch(`http://localhost:5000/${category.toLowerCase()}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setQuestions(data);
+        toast.success("Let's begin! 💪");
+      })
+      .catch(() => toast.error("Failed to load questions"));
   }, [category]);
 
-  const handleOptionClick = (option) => {
-    if (!showFeedback) {
-      setSelectedOption(option);
-      setShowFeedback(true);
-
-      setQuestions(prevQuestions => {
-        const updated = [...prevQuestions];
-        updated[currentQuestionIndex] = {
-          ...updated[currentQuestionIndex],
-          userAnswer: option,
-        };
-        return updated;
-      });
-
-      if (option === questions[currentQuestionIndex].correctAnswer) {
-        setScore((prevScore) => prevScore + 1);
-        toast.success('Correct! 🎉');
-      } else {
-        toast.error('Oops! That was wrong ❌');
+  useEffect(() => {
+    if (timer === 0) {
+      toast("Time's up! Moving to next question ⏰");
+      handleNext();
+      return;
     }
+
+    const interval = setInterval(() => {
+      setTimer((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timer]);
+
+  const handleAnswerClick = (answer) => {
+    if (selectedAnswer) return;
+
+    setSelectedAnswer(answer);
+
+    const isCorrect = answer === questions[currentIndex].correctAnswer;
+    const newAnsweredQuestions = [...answeredQuestions];
+    newAnsweredQuestions[currentIndex] = {
+      ...questions[currentIndex],
+      selectedAnswer: answer,
+      correctAnswer: questions[currentIndex].correctAnswer,
+      isCorrect,
+    };
+    setAnsweredQuestions(newAnsweredQuestions);
   };
 
-  const handleNextQuestion = () => {
-    const nextIndex = currentQuestionIndex + 1;
-    if (nextIndex >= questions.length) {
-      setQuizFinished(true); 
-      toast('Quiz completed! 🏁'); // Mark quiz as finished
+  const handleNext = () => {
+    setSelectedAnswer(null);
+    setTimer(30); // Reset timer
+
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      toast.success("On to the next one! 🚀");
     } else {
-      setCurrentQuestionIndex(nextIndex);
-      setSelectedOption(null);
-      setShowFeedback(false);
+      toast.success("Quiz completed! 🎉");
+      navigate("/result", { state: { answeredQuestions } });
     }
   };
 
-  const handleRetry = () => {
-    setScore(0);
-    setCurrentQuestionIndex(0);
-    setSelectedOption(null);
-    setShowFeedback(false);
-    setQuizFinished(false); // Reset quiz to start again
-  };
+  if (questions.length === 0) return <p>Loading...</p>;
 
-  const handleCategoryChange = (event) => {
-    setUserCategory(event.target.value);
-  };
-
-  const handleCategorySubmit = () => {
-    const chosenCategory = userCategory.trim().toLowerCase();
-    if (categories.includes(userCategory)) {
-      setCategory(userCategory);
-      setQuizFinished(false); // Reset quiz when category changes
-    } else {
-      toast.error("Invalid category! Please choose a valid category.");
-    }
-  };
-
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
-  if (!questions.length) return <div className="no-questions">No questions available</div>;
-
-  const currentQuestion = questions[currentQuestionIndex];
+  const current = questions[currentIndex];
 
   return (
-    <div className="app">
-      <h1>Quiz Fizz</h1>
+    <motion.div
+      className="quiz-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="quiz-box">
+        <div className="top-bar">
+          <h2>
+            Question {currentIndex + 1} of {questions.length}
+          </h2>
+          <p className="timer">⏱️ {timer}s</p>
+        </div>
 
-      {!quizFinished && (
-        <>
-          {/* Category Selection */}
-          <div className="category-selection">
-            <h3>Choose a category:</h3>
-            <select className="categ"  onChange={(e) => setCategory(e.target.value)} value={category}>
-              {categories.map((cat, idx) => (
-                <option key={idx} value={cat.toLowerCase()}>
-                  {cat}
-                </option>
-              ))}
-            </select>
+        <motion.div
+          key={currentIndex}
+          className="question-box"
+          initial={{ x: 30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <p className="question">{current.question}</p>
 
-            <div className="custom-category">
-              <input
-                type="text"
-                value={userCategory}
-                onChange={handleCategoryChange}
-                placeholder="Type your category"
-              />
-              <button onClick={handleCategorySubmit}>Set Category</button>
-            </div>
-          </div>
-
-          {/* Quiz Section */}
-          <div className="question">
-            <h2>{currentQuestion.question}</h2>
-            <div className="answers">
-              {currentQuestion.answers.map((option, idx) => {
-                let className = 'answer-option';
-                if (showFeedback) {
-                  if (option === currentQuestion.correctAnswer) className += ' correct';
-                  else if (option === selectedOption) className += ' incorrect';
-                } else if (option === selectedOption) {
-                  className += ' selected';
-                }
-
-                return (
-                  <button
-                    key={idx}
-                    className={className}
-                    onClick={() => handleOptionClick(option)}
-                    disabled={showFeedback}
-                  >
-                    {option}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {showFeedback && (
-            <div className="feedback">
-              <p>{selectedOption === currentQuestion.correctAnswer ? 'Correct!' : 'Incorrect!'}</p>
-              <button onClick={handleNextQuestion}>
-                {currentQuestionIndex === questions.length - 1 ? 'See Results' : 'Next Question'}
-              </button>
-            </div>
-          )}
-        </>
-      )}
-
-      {quizFinished && (
-        <div className="results">
-          <h2>Quiz Finished!</h2>
-          <p>Your score: {score} / {questions.length}</p>
-
-          <div className="results-summary">
-            {questions.map((question, index) => (
-              <div key={index} className="result-item">
-                <p><strong>Q{index + 1}:</strong> {question.question}</p>
-                <p>
-                  Your Answer: <span className={question.userAnswer === question.correctAnswer ? 'correct-answer' : 'incorrect-answer'}>
-                    {question.userAnswer || 'No answer'}
-                  </span>
-                </p>
-                <p>Correct Answer: <strong>{question.correctAnswer}</strong></p>
-                <hr />
+          <div className="answers">
+            {current.answers.map((answer, i) => (
+              <div
+                key={i}
+                className={`answer-option ${
+                  selectedAnswer === answer ? "selected" : ""
+                }`}
+                onClick={() => handleAnswerClick(answer)}
+              >
+                {answer}
               </div>
             ))}
           </div>
+        </motion.div>
 
-          <button onClick={handleRetry}>Retry</button>
-        </div>
-      )}
-    </div>
+        <button
+          onClick={handleNext}
+          disabled={!selectedAnswer}
+          className="next-btn"
+        >
+          {currentIndex < questions.length - 1 ? "Next" : "Finish"}
+        </button>
+      </div>
+    </motion.div>
   );
-}}
+}
 
-export default App;
+export default Quiz;
